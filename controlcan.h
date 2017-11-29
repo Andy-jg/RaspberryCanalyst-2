@@ -51,8 +51,19 @@
 #define FALSE 0
 
 
+typedef unsigned char  u8;
+typedef signed   char  s8;
+typedef unsigned int   u16; 
+typedef signed   int   s16;
+typedef unsigned long  u32;
+typedef signed   long  s32;
+
+
+
+
+
 #if 1
-//1.ZLGCAN系列接口卡信息的数据类型。
+// //1.ZLGCAN系列接口卡信息的数据类型。
 typedef  struct  _VCI_BOARD_INFO{
 		USHORT	hw_Version;
 		USHORT	fw_Version;
@@ -65,7 +76,7 @@ typedef  struct  _VCI_BOARD_INFO{
 		USHORT	Reserved[4];
 } VCI_BOARD_INFO,*PVCI_BOARD_INFO; 
 
-//2.定义CAN信息帧的数据类型。
+// //2////.定义CAN信息帧的数据类型。
 typedef  struct  _VCI_CAN_OBJ{
 	UINT	ID;
 	UINT	TimeStamp;
@@ -78,7 +89,7 @@ typedef  struct  _VCI_CAN_OBJ{
 	BYTE	Reserved[3];
 }VCI_CAN_OBJ,*PVCI_CAN_OBJ;
 
-//3.定义CAN控制器状态的数据类型。
+//// 3.定义CAN控制器状态的数据类型。
 typedef struct _VCI_CAN_STATUS{
 	UCHAR	ErrInterrupt;
 	UCHAR	regMode;

@@ -1,3 +1,5 @@
+#ifndef LOGREC_H
+#define LOGREC_H
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
@@ -12,3 +14,4 @@ void canwrite(const char dd[]);
 void canlogcreat();
 void canlogclose();
 
+#endif

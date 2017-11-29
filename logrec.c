@@ -6,7 +6,6 @@ CANGETSTU stucanget;
 time_t t;
 struct tm * lt;
 
-
 //printf ( "%d/%d/%d %d:%d:%d\n",lt->tm_year+1900, lt->tm_mon, lt->tm_mday, lt->tm_hour, lt->tm_min, lt->tm_sec);//输出结果
 void canwrite(const char dd[])
 {	if(1==stucanget.openflag)

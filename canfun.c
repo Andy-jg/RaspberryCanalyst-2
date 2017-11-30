@@ -17,6 +17,9 @@ void StartCan0(void );
 void CaninitDate();
 void Systime20msfun(void);
 void Systtime10msfun(void);
+void setTimer10ms(int seconds, int mseconds);
+void setTimer20ms(int seconds, int mseconds);
+
 
 UCHAR OpenDev();
 UCHAR InitCan();
@@ -32,6 +35,21 @@ u8  caiSendflag;
 u8 SysCase;
 VCI_CAN_OBJ send[3];
 
+void *receive_func(void* param)  //接收线程的处理函数
+{
+	while(TRUE)
+	{
+		setTimer20ms(0, 37000);
+	}
+}
+
+void *Send_func(void* param)
+{
+	while(TRUE)
+	{
+		setTimer10ms(0,10000);		
+	}
+}
 
 
 void setTimer10ms(int seconds, int mseconds)
@@ -212,45 +230,27 @@ void Systime20msfun(void)
 void InitSendDate()
 {
 	Gsmbuf.ID=GSM_ID;
-	Gsmbuf.SendType=1;
+	Gsmbuf.SendType=0;
 	Gsmbuf.RemoteFlag=0;
 	Gsmbuf.ExternFlag=0;
 	Gsmbuf.DataLen=8;
 
 	Tcubuf.ID=TCU_ID;
-	Tcubuf.SendType=1;
+	Tcubuf.SendType=0;
 	Tcubuf.RemoteFlag=0;
 	Tcubuf.ExternFlag=0;
 	Tcubuf.DataLen=8;
 
 	Calibuf.ID=Cali_ID;
-	Calibuf.SendType=1;
+	Calibuf.SendType=0;
 	Calibuf.RemoteFlag=0;
 	Calibuf.ExternFlag=0;
 	Calibuf.DataLen=8;
 	Calibuf.Data[0]=14;
 	Calibuf.Data[1]=0x55;
-
-
-}
-
-void *receive_func(void* param)  //接收线程的处理函数
-{
-	while(TRUE)
-	{
-		setTimer20ms(0, 37000);
-	}
 }
 
 
-
-void *Send_func(void* param)
-{
-	while(TRUE)
-	{
-		setTimer10ms(0,10000);
-	}
-}
 
 
 void ReadBoardInf(void)

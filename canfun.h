@@ -16,6 +16,8 @@
 #include <cstdlib>
 #include "unistd.h"
 #include "logrec.h"
+#include <errno.h>
+
 
 #define GSM_ID          0x1a3
 #define TCU_ID          0x1a1

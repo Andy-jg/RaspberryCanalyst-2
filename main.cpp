@@ -35,6 +35,7 @@ main()
 	while (1)
 	{
 		sleep(22);// wait 10ms
+
 	}
 //ext:	
 //	VCI_CloseDevice(VCI_USBCAN2,0);
